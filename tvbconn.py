@@ -6,7 +6,7 @@ from tvb.datatypes.sensors import SensorsEEG
 from tvb.datatypes.projections import ProjectionMatrix, ProjectionSurfaceEEG
 import time
 
-
+# zipped directory that contains connectivity/tractography info
 conn_fname = "/home/annajo/git/tvb/tvb-data/tvb_data/berlinSubjects/DH_20120806/connectivity/DH_20120806_Connectivity/DHconn.zip"
 conn = connectivity.Connectivity.from_file(conn_fname)
 
@@ -17,9 +17,11 @@ print("connectivity loaded")
 plot_connectivity(connectivity=conn)
 # pyplot.show()
 
-
+# triangulated cortical surface mesh
 ctx_fname = "/home/annajo/git/tvb/tvb-data/tvb_data/berlinSubjects/DH_20120806/cortex/DH_20120806_Surface_Cortex.zip"
+# maps nodes from cortex mesh to brain regions
 region_fname = "/home/annajo/git/tvb/tvb-data/tvb_data/berlinSubjects/DH_20120806/DH_20120806_RegionMapping.txt"
+# matlab matrix that describes how waves propagate to the surface
 eeg_fname = "/home/annajo/git/tvb/tvb-data/tvb_data/berlinSubjects/DH_20120806/DH_20120806_ProjectionMatrix.mat"
 ctx = cortex.Cortex.from_file(source_file=ctx_fname,
     region_mapping_file=region_fname,
@@ -34,6 +36,7 @@ ax.plot_trisurf(x, y, z, triangles=ctx.triangles, alpha=0.1, edgecolor='k')
 # pyplot.show()
 print("cortex plot ready")
 
+# unit vectors that describe the location of eeg sensors
 sensoreeg_fname = "/home/annajo/git/tvb/tvb-data/tvb_data/berlinSubjects/DH_20120806/DH_20120806_EEGLocations.txt"
 
 rm = RegionMapping.from_file(region_fname)
@@ -46,9 +49,17 @@ mon = monitors.EEG(sensors=sensorsEEG, projection=prEEG,
 
 sim = simulator.Simulator(
     connectivity=conn,
+    # conduction speed: 3 mm/ms
+    # coupling: linear - rescales activity propagated
+    # stimulus: None - can be a spatiotemporal function
+    # model: Generic 2D Oscillator - neural mass has two state variables that
+    # represent a neuron's membrane potential and recovery; see the
+    # mathematics paper for default values and equations
+    # integrator: Heun Deterministic
+    # initial conditions: None
     monitors=mon,
     surface=ctx,
-    simulation_length=1000.0
+    simulation_length=1000.0 # ms
 ).configure()
 print("sim configured")
 
