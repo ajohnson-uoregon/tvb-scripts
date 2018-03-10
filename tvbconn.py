@@ -4,7 +4,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from tvb.datatypes.region_mapping import RegionMapping
 from tvb.datatypes.sensors import SensorsEEG
 from tvb.datatypes.projections import ProjectionMatrix, ProjectionSurfaceEEG
-from tvb.simulator.models import WilsonCowan, Generic2dOscillator, ReducedWongWang
+from tvb.simulator.models import WilsonCowan, Generic2dOscillator, ReducedWongWang, JansenRit
 import time
 
 # zipped directory that contains connectivity/tractography info
@@ -53,14 +53,20 @@ sim = simulator.Simulator(
     # conduction speed: 3 mm/ms
     # coupling: linear - rescales activity propagated
     # stimulus: None - can be a spatiotemporal function
+
     # model: Generic 2D Oscillator - neural mass has two state variables that
     # represent a neuron's membrane potential and recovery; see the
     # mathematics paper for default values and equations; runtime 8016 s
-    model=ReducedWongWang(),
+    model=JansenRit(),
     # model: Wilson & Cowan - two neural masses have an excitatory/inhibitory
     # relationship; see paper for details; runtime 16031 s
     # model: Wong & Wang - reduced system of two non-linear coupled differential
     # equations based on the attractor network model; see paper; runtime 8177 s
+    # model: Jansen & Rit - biologically inspired mathematical framework
+    # originally conceived to simulate the spontaneous electrical activity of
+    # neuronal assemblies, with a particular focus on alpha activity; had
+    # some weird numpy overflow errors, only generated ~200 ms data; runtime 5929 s
+
     # integrator: Heun Deterministic
     # initial conditions: None
     monitors=mon,
