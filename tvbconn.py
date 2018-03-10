@@ -4,6 +4,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from tvb.datatypes.region_mapping import RegionMapping
 from tvb.datatypes.sensors import SensorsEEG
 from tvb.datatypes.projections import ProjectionMatrix, ProjectionSurfaceEEG
+from tvb.simulator.models import WilsonCowan, Generic2dOscillator, ReducedWongWang
 import time
 
 # zipped directory that contains connectivity/tractography info
@@ -54,7 +55,12 @@ sim = simulator.Simulator(
     # stimulus: None - can be a spatiotemporal function
     # model: Generic 2D Oscillator - neural mass has two state variables that
     # represent a neuron's membrane potential and recovery; see the
-    # mathematics paper for default values and equations
+    # mathematics paper for default values and equations; runtime 8016 s
+    model=ReducedWongWang(),
+    # model: Wilson & Cowan - two neural masses have an excitatory/inhibitory
+    # relationship; see paper for details; runtime 16031 s
+    # model: Wong & Wang - reduced system of two non-linear coupled differential
+    # equations based on the attractor network model; see paper; runtime 8177 s
     # integrator: Heun Deterministic
     # initial conditions: None
     monitors=mon,
