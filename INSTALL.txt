@@ -1,0 +1,20 @@
+Tvb-library install instructions:
+- Create conda env with python=2.7, activate it
+- conda install 
+  - nibabel
+  - numba
+  - numexpr
+  - numpy
+  - scipy
+  - tvb-gdist
+- In tvb-library, run python setup.py build
+
+If you want to run tests: 
+- conda install pytest
+- conda install hypothesis
+- conda install tvb-data OR
+- Download tvb-data, run python setup.py install
+- Go back to tvb-library, run pytest tvb/tests, see if they all pass
+- If there’s errors in monitors_test: 
+  - Copy tvb-data/tvb_data/projectionMatrix/projection_seeg_588_surface_16k.npy into your conda env (~/anaconda3/envs/<your_env>/lib/python2.7/site-packages/tvb_data-1.5.6-py2.7.egg/tvb_data/projectionMatrix/ is probably the correct path; you can check the error messages, they'll tell you where they're trying to read from)
+
