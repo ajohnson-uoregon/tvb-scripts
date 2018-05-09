@@ -1,108 +1,57 @@
-name: tvb2.7
+name: newtvb
 channels:
 - defaults
 - conda-forge
 dependencies:
-- attrs=17.3.0=py27hf19f258_0
-- backports_abc=0.5=py27h7b3c97b_0
-- ca-certificates=2017.08.26=h1d4fec5_0
-- certifi=2017.11.5=py27h71e7faf_0
-- cffi=1.11.2=py27ha7929c6_0
-- chardet=3.0.4=py27hfa10054_1
-- configparser=3.5.0=py27h5117587_0
-- coverage=4.4.2=py27h86fff8b_0
-- cython=0.27.3=py27hc56b35e_0
-- decorator=4.1.2=py27h1544723_0
+- nibabel=2.2.1=py27_0
+- pydicom=1.0.2=py_0
+- tvb-gdist=1.5.5=py27_0
+- attrs=18.1.0=py27_0
+- ca-certificates=2018.03.07=0
+- certifi=2018.4.16=py27_0
+- coverage=4.5.1=py27h14c3975_0
+- cython=0.28.2=py27h14c3975_0
+- decorator=4.3.0=py27_0
 - enum34=1.1.6=py27h99a27e9_1
 - funcsigs=1.0.2=py27h83f16ab_0
 - h5py=2.7.1=py27h2697762_0
 - hdf5=1.10.1=h9caa474_1
-- hypothesis=3.38.5=py27h2236425_0
-- intel-openmp=2018.0.0=hc7b2577_8
+- hypothesis=3.56.0=py27_0
+- intel-openmp=2018.0.0=8
 - libedit=3.1=heed3624_0
 - libffi=3.2.1=hd88cf55_4
-- libgcc-ng=7.2.0=h7cc24e2_2
-- libgfortran-ng=7.2.0=h9f7466a_2
-- libpng=1.6.32=hbd3595f_4
-- libstdcxx-ng=7.2.0=h7a57d05_2
-- llvmlite=0.21.0=py27h6dad3f9_0
-- mkl=2018.0.1=h19d6760_4
+- libgcc-ng=7.2.0=hdf63c60_3
+- libgfortran-ng=7.2.0=hdf63c60_3
+- libstdcxx-ng=7.2.0=hdf63c60_3
+- llvmlite=0.22.0=py27hdbca893_0
+- mkl=2018.0.2=1
+- mkl_fft=1.0.1=py27h3010b51_0
+- mkl_random=1.0.1=py27h629b387_0
+- more-itertools=4.1.0=py27_0
 - ncurses=6.0=h9df7e31_2
-- numpy=1.13.3=py27hbcc08e0_0
-- openssl=1.0.2n=hb7f436b_0
-- pandocfilters=1.4.2=py27h428e1e5_1
-- pathlib2=2.3.0=py27h6e9d198_0
-- pexpect=4.3.0=py27hdeba8d9_0
-- pickleshare=0.7.4=py27h09770e1_0
-- pip=9.0.1=py27ha730c48_4
+- networkx=2.1=py27_0
+- numba=0.37.0=np113py27h18d2f7f_0
+- numexpr=2.6.5=py27h7bf3b9c_0
+- numpy=1.13.3=py27hdbf6ddf_4
+- openssl=1.0.2o=h20670df_0
+- pip=10.0.1=py27_0
 - pluggy=0.6.0=py27h1f4f128_0
-- prompt_toolkit=1.0.15=py27h1b593e1_0
-- ptyprocess=0.5.2=py27h4ccb14c_0
-- py=1.5.2=py27h203d672_0
-- pycparser=2.18=py27hefa08c5_1
-- pygments=2.2.0=py27h4a8b6f5_0
-- pympler=0.5=py27h8aa4898_0
-- pysocks=1.6.7=py27he2db6d2_1
-- pytest=3.3.0=py27h0742b9d_0
-- python=2.7.14=h1571d57_29
-- python-dateutil=2.6.1=py27h4ca5741_1
-- pyyaml=3.12=py27h2d70dd7_1
+- py=1.5.3=py27_0
+- pytest=3.5.1=py27_0
+- python=2.7.15=h1571d57_0
 - readline=7.0=ha6073c6_4
-- scandir=1.6=py27hf7388dc_0
-- scipy=1.0.0=py27hf5f0f52_0
-- setuptools=36.5.0=py27h68b189e_0
-- simplegeneric=0.8.1=py27h19e43cd_0
+- scikit-learn=0.19.1=py27h445a80a_0
+- scipy=1.0.1=py27hfc37229_0
+- setuptools=39.1.0=py27_0
 - singledispatch=3.4.0.3=py27h9bcb476_0
 - six=1.11.0=py27h5f960f1_1
-- sqlalchemy=1.1.13=py27hb0a01da_0
-- sqlite=3.20.1=hb898158_2
-- testpath=0.3.1=py27hc38d2c4_0
+- sqlite=3.23.1=he433501_0
 - tk=8.6.7=hc745277_3
-- wcwidth=0.1.7=py27h9e3e1ab_0
-- wheel=0.30.0=py27h2bc6bb2_1
-- xz=5.2.3=h55aa19d_2
-- yaml=0.1.7=had09818_2
+- wheel=0.31.0=py27_0
 - zlib=1.2.11=ha838bed_2
-- zope=1.0=py27_0
-- zope.interface=4.4.3=py27hb02d991_0
 - pip:
-  - allensdk==0.14.3
-  - backports-abc==0.5
-  - beautifulsoup4==4.6.0
-  - cfflib==2.0.5
-  - cheroot==6.0.0
-  - cherrypy==13.1.0
-  - cycler==0.10.0
-  - formencode==2.0.0a1
-  - future==0.16.0
-  - genshi==0.7
-  - markupsafe==1.0
-  - matplotlib==1.5.3
-  - more-itertools==4.0.1
-  - networkx==2.0
-  - nibabel==2.2.1
-  - numba==0.36.2
-  - numexpr==2.6.4
-  - pandas==0.19.2
-  - patsy==0.4.1
-  - pbr==3.1.1
-  - portend==2.2
-  - prompt-toolkit==1.0.15
-  - psutil==5.4.3
-  - pynrrd==0.2.4
-  - pyparsing==2.2.0
-  - pytz==2017.3
-  - pywavelets==0.5.2
-  - requests-toolbelt==0.8.0
-  - scikit-image==0.13.1
-  - scikit-learn==0.19.1
-  - simplejson==3.13.2
-  - sqlalchemy-migrate==0.11.0
-  - sqlparse==0.2.4
-  - statsmodels==0.8.0
-  - tempita==0.5.3.dev0
-  - tempora==1.10
-  - tvb-data (/home/annajo/anaconda3/envs/tvb2.7/lib/python2.7/site-packages/tvb_data-1.5.5-py2.7.egg)==1.5.5
-  - tvb-gdist==1.5.5
-prefix: /home/annajo/anaconda3/envs/tvb2.7
+  - mkl-fft==1.0.0
+  - mkl-random==1.0.1
+  - tvb-data==1.5.6
+prefix: /home/annajo/anaconda3/envs/newtvb
 
